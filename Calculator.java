@@ -93,8 +93,10 @@ class calculator extends JFrame implements ActionListener {
 		be.setPreferredSize(new Dimension(80, 80));
 
 		// create a panel
+		JPanel p1 = new JPanel();
 		JPanel p = new JPanel();
-
+		
+		//p.setLayout(new GridLayout(4, 4));
 		// add action listeners
 		bm.addActionListener(c);
 		bd.addActionListener(c);
@@ -115,7 +117,7 @@ class calculator extends JFrame implements ActionListener {
 		beq1.addActionListener(c);
 
 		// add elements to panel
-		p.add(l);
+		p1.add(l);
 		p.add(ba);
 		p.add(b1);
 		p.add(b2);
@@ -138,7 +140,9 @@ class calculator extends JFrame implements ActionListener {
 		p.setBackground(Color.DARK_GRAY);
 
 		// add panel to frame
+		f.add(p1);
 		f.add(p);
+		
 
 		f.setSize(400, 600);
 		f.show();
