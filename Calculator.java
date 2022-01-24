@@ -38,7 +38,7 @@ class calculator extends JFrame implements ActionListener {
 		calculator c = new calculator();
 
 		// create a textfield
-		l = new JTextField(16);
+		l = new JTextField(30);
 		l.setPreferredSize(new Dimension(400,50)); 
 
 		// set the textfield to non editable
@@ -59,6 +59,16 @@ class calculator extends JFrame implements ActionListener {
 		b8 = new JButton("8");
 		b9 = new JButton("9");
 
+		b0.setPreferredSize(new Dimension(50, 50));
+		b1.setPreferredSize(new Dimension(50, 50));
+		b2.setPreferredSize(new Dimension(50, 50));
+		b3.setPreferredSize(new Dimension(50, 50));
+		b4.setPreferredSize(new Dimension(50, 50));
+		b5.setPreferredSize(new Dimension(50, 50));
+		b6.setPreferredSize(new Dimension(50, 50));
+		b7.setPreferredSize(new Dimension(50, 50));
+		b8.setPreferredSize(new Dimension(50, 50));
+		b9.setPreferredSize(new Dimension(50, 50));
 		// equals button
 		beq1 = new JButton("=");
 
@@ -71,6 +81,14 @@ class calculator extends JFrame implements ActionListener {
 
 		// create . button
 		be = new JButton(".");
+
+
+		ba.setPreferredSize(new Dimension(50, 50));
+		bs.setPreferredSize(new Dimension(50, 50));
+		bd.setPreferredSize(new Dimension(50, 50));
+		bm.setPreferredSize(new Dimension(50, 50));
+		beq.setPreferredSize(new Dimension(50, 50));
+		be.setPreferredSize(new Dimension(50, 50));
 
 		// create a panel
 		JPanel p = new JPanel();
