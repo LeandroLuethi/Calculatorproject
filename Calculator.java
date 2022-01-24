@@ -45,7 +45,7 @@ class calculator extends JFrame implements ActionListener {
 		l.setEditable(false);
 
 		// create number buttons and some operators
-		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1;
+		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez;
 
 		// create number buttons
 		b0 = new JButton("0");
@@ -69,6 +69,8 @@ class calculator extends JFrame implements ActionListener {
 		bd = new JButton("/");
 		bm = new JButton("x");
 		beq = new JButton("C");
+		bpi = new JButton("Pi");
+		bez = new JButton("π");
 
 		// create . button
 		be = new JButton(".");
@@ -91,6 +93,8 @@ class calculator extends JFrame implements ActionListener {
 		bm.setPreferredSize(new Dimension(80, 80));
 		beq.setPreferredSize(new Dimension(80,80));
 		be.setPreferredSize(new Dimension(80, 80));
+		bpi.setPreferredSize(new Dimension(80,80));
+		bez.setPreferredSize(new Dimension(80, 80));
 
 		// create a panel
 		JPanel p1 = new JPanel();
@@ -115,6 +119,8 @@ class calculator extends JFrame implements ActionListener {
 		be.addActionListener(c);
 		beq.addActionListener(c);
 		beq1.addActionListener(c);
+		bpi.addActionListener(c);
+		bez.addActionListener(c);
 
 		// add elements to panel
 		p1.add(l);
@@ -135,6 +141,8 @@ class calculator extends JFrame implements ActionListener {
 		p.add(b0);
 		p.add(beq);
 		p.add(beq1);
+		p.add(bpi);
+		p.add(bez);
 
 		// set Background of panel
 		p.setBackground(Color.DARK_GRAY);
@@ -180,6 +188,11 @@ class calculator extends JFrame implements ActionListener {
 				te = (Double.parseDouble(s0) - Double.parseDouble(s2));
 			else if (s1.equals("/"))
 				te = (Double.parseDouble(s0) / Double.parseDouble(s2));
+			else if (s1.equals("π"))
+              			te = (Double.parseDouble(s0) * 3.14159265359);
+
+          		else if (s1.equals("e"))
+                		te = (Double.parseDouble(s0) * 2.7182818284);
 			else
 				te = (Double.parseDouble(s0) * Double.parseDouble(s2));
 
@@ -206,6 +219,11 @@ class calculator extends JFrame implements ActionListener {
 					te = (Double.parseDouble(s0) - Double.parseDouble(s2));
 				else if (s1.equals("/"))
 					te = (Double.parseDouble(s0) / Double.parseDouble(s2));
+				else if (s1.equals("π"))
+                			te = (Double.parseDouble(s0) * 3.14159265359);
+
+            			else if (s1.equals("e"))
+                			te = (Double.parseDouble(s0) *2.7182818284);
 				else
 					te = (Double.parseDouble(s0) * Double.parseDouble(s2));
 
