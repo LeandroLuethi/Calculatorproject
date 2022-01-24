@@ -59,16 +59,7 @@ class calculator extends JFrame implements ActionListener {
 		b8 = new JButton("8");
 		b9 = new JButton("9");
 
-		b0.setPreferredSize(new Dimension(50, 50));
-		b1.setPreferredSize(new Dimension(50, 50));
-		b2.setPreferredSize(new Dimension(50, 50));
-		b3.setPreferredSize(new Dimension(50, 50));
-		b4.setPreferredSize(new Dimension(50, 50));
-		b5.setPreferredSize(new Dimension(50, 50));
-		b6.setPreferredSize(new Dimension(50, 50));
-		b7.setPreferredSize(new Dimension(50, 50));
-		b8.setPreferredSize(new Dimension(50, 50));
-		b9.setPreferredSize(new Dimension(50, 50));
+
 		// equals button
 		beq1 = new JButton("=");
 
@@ -82,13 +73,24 @@ class calculator extends JFrame implements ActionListener {
 		// create . button
 		be = new JButton(".");
 
-
-		ba.setPreferredSize(new Dimension(50, 50));
-		bs.setPreferredSize(new Dimension(50, 50));
-		bd.setPreferredSize(new Dimension(50, 50));
-		bm.setPreferredSize(new Dimension(50, 50));
-		beq.setPreferredSize(new Dimension(50, 50));
-		be.setPreferredSize(new Dimension(50, 50));
+		//Set Button size
+		b0.setPreferredSize(new Dimension(80, 80));
+		b1.setPreferredSize(new Dimension(80, 80));
+		b2.setPreferredSize(new Dimension(80, 80));
+		b3.setPreferredSize(new Dimension(80, 80));
+		b4.setPreferredSize(new Dimension(80, 80));
+		b5.setPreferredSize(new Dimension(80, 80));
+		b6.setPreferredSize(new Dimension(80, 80));
+		b7.setPreferredSize(new Dimension(80, 80));
+		b8.setPreferredSize(new Dimension(80, 80));
+		b9.setPreferredSize(new Dimension(80, 80));
+		beq1.setPreferredSize(new Dimension(80, 80));
+		ba.setPreferredSize(new Dimension(80, 80));
+		bs.setPreferredSize(new Dimension(80, 80));
+		bd.setPreferredSize(new Dimension(80, 80));
+		bm.setPreferredSize(new Dimension(80, 80));
+		beq.setPreferredSize(new Dimension(80,80));
+		be.setPreferredSize(new Dimension(80, 80));
 
 		// create a panel
 		JPanel p = new JPanel();
