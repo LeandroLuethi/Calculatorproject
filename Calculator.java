@@ -25,6 +25,7 @@ class calculator extends JFrame implements ActionListener {
 	{
 		// create a frame
 		f = new JFrame("calculator");
+		f.setResizable(false);
 
 		try {
 			// set look and feel
@@ -39,7 +40,7 @@ class calculator extends JFrame implements ActionListener {
 
 		// create a textfield
 		l = new JTextField(30);
-		l.setPreferredSize(new Dimension(400,50)); 
+		l.setPreferredSize(new Dimension(400,60)); 
 
 		// set the textfield to non editable
 		l.setEditable(false);
@@ -68,9 +69,10 @@ class calculator extends JFrame implements ActionListener {
 		bs = new JButton("-");
 		bd = new JButton("/");
 		bm = new JButton("x");
+		bpi = new JButton("π");
+		bez = new JButton("e");
 		beq = new JButton("C");
-		bpi = new JButton("Pi");
-		bez = new JButton("π");
+		
 
 		// create . button
 		be = new JButton(".");
@@ -97,10 +99,8 @@ class calculator extends JFrame implements ActionListener {
 		bez.setPreferredSize(new Dimension(80, 80));
 
 		// create a panel
-		JPanel p1 = new JPanel();
 		JPanel p = new JPanel();
 		
-		//p.setLayout(new GridLayout(4, 4));
 		// add action listeners
 		bm.addActionListener(c);
 		bd.addActionListener(c);
@@ -123,7 +123,7 @@ class calculator extends JFrame implements ActionListener {
 		bez.addActionListener(c);
 
 		// add elements to panel
-		p1.add(l);
+		p.add(l);
 		p.add(ba);
 		p.add(b1);
 		p.add(b2);
@@ -148,10 +148,8 @@ class calculator extends JFrame implements ActionListener {
 		p.setBackground(Color.DARK_GRAY);
 
 		// add panel to frame
-		f.add(p1);
 		f.add(p);
 		
-
 		f.setSize(400, 600);
 		f.show();
 	}
@@ -182,19 +180,29 @@ class calculator extends JFrame implements ActionListener {
 			double te;
 
 			// store the value in 1st
-			if (s1.equals("+"))
+			if (s1.equals("+")){
 				te = (Double.parseDouble(s0) + Double.parseDouble(s2));
-			else if (s1.equals("-"))
+			}
+			else if (s1.equals("-")){
 				te = (Double.parseDouble(s0) - Double.parseDouble(s2));
-			else if (s1.equals("/"))
+			}
+			else if (s1.equals("/")){
 				te = (Double.parseDouble(s0) / Double.parseDouble(s2));
-			else if (s1.equals("π"))
-              			te = (Double.parseDouble(s0) * 3.14159265359);
-
-          		else if (s1.equals("e"))
-                		te = (Double.parseDouble(s0) * 2.7182818284);
+			}
+			else if (s1.equals("π") || s0.equals("π")){
+				if (s1.equals("π")){
+              		te = (Double.parseDouble(s0) * 3.14159265359);
+				}
+				else { te = Double.parseDouble(s2) * 3.14159265359; 
+				}
+			} 
+          	else if (s1.equals("e")){
+                te = (Double.parseDouble(s0) * 2.7182818284);
+			}
 			else
-				te = (Double.parseDouble(s0) * Double.parseDouble(s2));
+				te = (Double.parseDouble(s0) * Double.parseDouble(s2)); 
+				
+		
 
 			// set the value of text
 			l.setText(s0 + s1 + s2 + "=" + te);
