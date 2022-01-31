@@ -156,6 +156,13 @@ class calculator extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e)
 	{
 		String s = e.getActionCommand();
+		if (s.equals("π")){
+				  s = "3.1416";
+		} 
+
+		  if (s.equals("e")){
+				s = "2.7183";
+		}
 
 		// if the value is a number
 		if ((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.') {
@@ -179,6 +186,8 @@ class calculator extends JFrame implements ActionListener {
 
 			double te;
 
+
+
 			// store the value in 1st
 			if (s1.equals("+")){
 				te = (Double.parseDouble(s0) + Double.parseDouble(s2));
@@ -189,20 +198,8 @@ class calculator extends JFrame implements ActionListener {
 			else if (s1.equals("/")){
 				te = (Double.parseDouble(s0) / Double.parseDouble(s2));
 			}
-			else if (s1.equals("π") || s0.equals("π")){
-				if (s1.equals("π")){
-              		te = (Double.parseDouble(s0) * 3.14159265359);
-				}
-				else { te = Double.parseDouble(s2) * 3.14159265359; 
-				}
-			} 
-          	else if (s1.equals("e")){
-                te = (Double.parseDouble(s0) * 2.7182818284);
-			}
 			else
 				te = (Double.parseDouble(s0) * Double.parseDouble(s2)); 
-				
-		
 
 			// set the value of text
 			l.setText(s0 + s1 + s2 + "=" + te);
@@ -217,21 +214,19 @@ class calculator extends JFrame implements ActionListener {
 			if (s1.equals("") || s2.equals(""))
 				s1 = s;
 			// else evaluate
-			else {
+		/* 	else {
 				double te;
 
 				// store the value in 1st
-				if (s1.equals("+"))
+				if (s1.equals("+")){
 					te = (Double.parseDouble(s0) + Double.parseDouble(s2));
-				else if (s1.equals("-"))
+				}
+				else if (s1.equals("-")){
 					te = (Double.parseDouble(s0) - Double.parseDouble(s2));
-				else if (s1.equals("/"))
+				}
+				else if (s1.equals("/")){
 					te = (Double.parseDouble(s0) / Double.parseDouble(s2));
-				else if (s1.equals("π"))
-                			te = (Double.parseDouble(s0) * 3.14159265359);
-
-            			else if (s1.equals("e"))
-                			te = (Double.parseDouble(s0) *2.7182818284);
+				}
 				else
 					te = (Double.parseDouble(s0) * Double.parseDouble(s2));
 
@@ -242,8 +237,8 @@ class calculator extends JFrame implements ActionListener {
 				s1 = s;
 
 				// make the operand blank
-				s2 = "";
-			}
+				s2 = ""; 
+			}*/
 
 			// set the value of text
 			l.setText(s0 + s1 + s2);
