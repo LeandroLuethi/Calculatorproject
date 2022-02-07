@@ -181,6 +181,7 @@ class calculator extends JFrame implements ActionListener {
 
 			// set the value of text
 			l.setText(s0 + s1 + s2);
+			
 		}
 		else if (s.charAt(0) == '=') {
 
