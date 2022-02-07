@@ -12,12 +12,12 @@ class calculator extends JFrame implements ActionListener {
 	static JTextField l;
 
 	// store operator and operands
-	String s0, s1, s2;
+	String s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
 
 	// default constructor
 	calculator()
 	{
-		s0 = s1 = s2 = "";
+		s0 = s1 = s2 = s3 = s4 = s5 = s6= s7 = s8 = s9 = s10 = "";
 	}
 
 	// main function
@@ -177,7 +177,7 @@ class calculator extends JFrame implements ActionListener {
 		}
 		else if (s.charAt(0) == 'C') {
 			// clear the one letter
-			s0 = s1 = s2 = "";
+			s0 = s1 = s2 = s3 = s4 = s5 = s6 = s7 = s8 = s9 = s10 = "";
 
 			// set the value of text
 			l.setText(s0 + s1 + s2);
