@@ -12,12 +12,12 @@ class calculator extends JFrame implements ActionListener {
 	static JTextField l;
 
 	// store operator and operands
-	String s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
+	String s0, s1, s2;
 
 	// default constructor
 	calculator()
 	{
-		s0 = s1 = s2 = s3 = s4 = s5 = s6= s7 = s8 = s9 = s10 = "";
+		s0 = s1 = s2 = "";
 	}
 
 	// main function
@@ -46,7 +46,7 @@ class calculator extends JFrame implements ActionListener {
 		l.setEditable(false);
 
 		// create number buttons and some operators
-		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez;
+		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez, pow, sqrt, log, per;
 
 		// create number buttons
 		b0 = new JButton("0");
@@ -72,7 +72,10 @@ class calculator extends JFrame implements ActionListener {
 		bpi = new JButton("π");
 		bez = new JButton("e");
 		beq = new JButton("C");
-		
+		pow = new JButton("^");
+		sqrt = new JButton("√");
+		log = new JButton("log()");
+		per = new JButton("%");
 
 		// create . button
 		be = new JButton(".");
@@ -97,6 +100,10 @@ class calculator extends JFrame implements ActionListener {
 		be.setPreferredSize(new Dimension(80, 80));
 		bpi.setPreferredSize(new Dimension(80,80));
 		bez.setPreferredSize(new Dimension(80, 80));
+		pow.setPreferredSize(new Dimension(80, 80));
+		sqrt.setPreferredSize(new Dimension(80, 80));
+		log.setPreferredSize(new Dimension(80, 80));
+		per.setPreferredSize(new Dimension(80, 80));
 
 		// create a panel
 		JPanel p = new JPanel();
@@ -121,6 +128,10 @@ class calculator extends JFrame implements ActionListener {
 		beq1.addActionListener(c);
 		bpi.addActionListener(c);
 		bez.addActionListener(c);
+		pow.addActionListener(c);
+		sqrt.addActionListener(c);
+		log.addActionListener(c);
+		per.addActionListener(c);
 
 		// add elements to panel
 		p.add(l);
@@ -143,6 +154,10 @@ class calculator extends JFrame implements ActionListener {
 		p.add(beq1);
 		p.add(bpi);
 		p.add(bez);
+		p.add(pow);
+		p.add(sqrt);
+		p.add(log);
+		p.add(per);
 
 		// set Background of panel
 		p.setBackground(Color.DARK_GRAY);
@@ -150,7 +165,7 @@ class calculator extends JFrame implements ActionListener {
 		// add panel to frame
 		f.add(p);
 		
-		f.setSize(400, 600);
+		f.setSize(400, 650);
 		f.show();
 	}
 	public void actionPerformed(ActionEvent e)
@@ -160,9 +175,10 @@ class calculator extends JFrame implements ActionListener {
 				  s = "3.1416";
 		} 
 
-		  if (s.equals("e")){
+		if (s.equals("e")){
 				s = "2.7183";
 		}
+
 
 		// if the value is a number
 		if ((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.') {
@@ -177,11 +193,11 @@ class calculator extends JFrame implements ActionListener {
 		}
 		else if (s.charAt(0) == 'C') {
 			// clear the one letter
-			s0 = s1 = s2 = s3 = s4 = s5 = s6 = s7 = s8 = s9 = s10 = "";
+			s0 = s1 = s2 =  "";
 
 			// set the value of text
 			l.setText(s0 + s1 + s2);
-			
+
 		}
 		else if (s.charAt(0) == '=') {
 
@@ -199,10 +215,26 @@ class calculator extends JFrame implements ActionListener {
 			else if (s1.equals("/")){
 				te = (Double.parseDouble(s0) / Double.parseDouble(s2));
 			}
+			else if (s1.equals("^")){
+				te = (java.lang.Math.pow(Double.parseDouble(s0), Double.parseDouble(s2)));
+			}
+			else if (s1.equals("√")){
+				double root = 1 / Double.parseDouble(s0);
+				te = (java.lang.Math.pow(Double.parseDouble(s2), root));
+				//te = (java.lang.Math.sqrt(Double.parseDouble(s0)));
+			}
+			else if (s1.equals("log()")){
+				te = (java.lang.Math.log10(Double.parseDouble(s2)) / java.lang.Math.log10(Double.parseDouble(s0)));
+			}
+			else if (s1.equals("%")){
+				te = (Double.parseDouble(s2) * (Double.parseDouble(s0)/100));
+			}
 			else
 				te = (Double.parseDouble(s0) * Double.parseDouble(s2)); 
 
 			// set the value of text
+			te = java.lang.Math.round(te*10000000000.0)/10000000000.0;
+
 			l.setText(s0 + s1 + s2 + "=" + te);
 
 			// convert it to string
