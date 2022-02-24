@@ -3,6 +3,8 @@
 
 import java.awt.event.*;
 import javax.swing.*;
+
+
 import java.awt.*;
 class calculator extends JFrame implements ActionListener {
 	// create a frame
@@ -10,6 +12,7 @@ class calculator extends JFrame implements ActionListener {
 
 	// create a textfield
 	static JTextField l;
+	static JTextField w;
 
 	// store operator and operands
 	String s0, s1, s2;
@@ -38,15 +41,18 @@ class calculator extends JFrame implements ActionListener {
 		// create a object of class
 		calculator c = new calculator();
 
-		// create a textfield
+		// create the textfields
 		l = new JTextField(30);
 		l.setPreferredSize(new Dimension(400,60)); 
+		w = new JTextField(30);
+		w.setPreferredSize(new Dimension(400,60)); 
+
 
 		// set the textfield to non editable
 		l.setEditable(false);
-
+		w.setEditable(false);
 		// create number buttons and some operators
-		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez, pow, sqrt, log, per;
+		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez, pow, sqrt, log, ex, sol;//per,
 
 		// create number buttons
 		b0 = new JButton("0");
@@ -75,35 +81,40 @@ class calculator extends JFrame implements ActionListener {
 		pow = new JButton("^");
 		sqrt = new JButton("√");
 		log = new JButton("log()");
-		per = new JButton("%");
+		//per = new JButton("%");
+		ex = new JButton("ex");
+		sol = new JButton("sol");
 
 		// create . button
 		be = new JButton(".");
 
 		//Set Button size
-		b0.setPreferredSize(new Dimension(80, 80));
-		b1.setPreferredSize(new Dimension(80, 80));
-		b2.setPreferredSize(new Dimension(80, 80));
-		b3.setPreferredSize(new Dimension(80, 80));
-		b4.setPreferredSize(new Dimension(80, 80));
-		b5.setPreferredSize(new Dimension(80, 80));
-		b6.setPreferredSize(new Dimension(80, 80));
-		b7.setPreferredSize(new Dimension(80, 80));
-		b8.setPreferredSize(new Dimension(80, 80));
-		b9.setPreferredSize(new Dimension(80, 80));
-		beq1.setPreferredSize(new Dimension(80, 80));
-		ba.setPreferredSize(new Dimension(80, 80));
-		bs.setPreferredSize(new Dimension(80, 80));
-		bd.setPreferredSize(new Dimension(80, 80));
-		bm.setPreferredSize(new Dimension(80, 80));
-		beq.setPreferredSize(new Dimension(80,80));
-		be.setPreferredSize(new Dimension(80, 80));
-		bpi.setPreferredSize(new Dimension(80,80));
-		bez.setPreferredSize(new Dimension(80, 80));
-		pow.setPreferredSize(new Dimension(80, 80));
-		sqrt.setPreferredSize(new Dimension(80, 80));
-		log.setPreferredSize(new Dimension(80, 80));
-		per.setPreferredSize(new Dimension(80, 80));
+		b0.setPreferredSize(new Dimension(90, 90));
+		b0.setPreferredSize(new Dimension(90, 90));
+		b1.setPreferredSize(new Dimension(90, 90));
+		b2.setPreferredSize(new Dimension(90, 90));
+		b3.setPreferredSize(new Dimension(90, 90));
+		b4.setPreferredSize(new Dimension(90, 90));
+		b5.setPreferredSize(new Dimension(90, 90));
+		b6.setPreferredSize(new Dimension(90, 90));
+		b7.setPreferredSize(new Dimension(90, 90));
+		b8.setPreferredSize(new Dimension(90, 90));
+		b9.setPreferredSize(new Dimension(90, 90));
+		beq1.setPreferredSize(new Dimension(90, 90));
+		ba.setPreferredSize(new Dimension(90, 90));
+		bs.setPreferredSize(new Dimension(90, 90));
+		bd.setPreferredSize(new Dimension(90, 90));
+		bm.setPreferredSize(new Dimension(90, 90));
+		beq.setPreferredSize(new Dimension(90,90));
+		be.setPreferredSize(new Dimension(90, 90));
+		bpi.setPreferredSize(new Dimension(90,90));
+		bez.setPreferredSize(new Dimension(90, 90));
+		pow.setPreferredSize(new Dimension(90, 90));
+		sqrt.setPreferredSize(new Dimension(90, 90));
+		log.setPreferredSize(new Dimension(90, 90));
+		//per.setPreferredSize(new Dimension(80, 80));
+		ex.setPreferredSize(new Dimension(90, 90));
+		sol.setPreferredSize(new Dimension(90, 90));
 
 		// create a panel
 		JPanel p = new JPanel();
@@ -131,33 +142,40 @@ class calculator extends JFrame implements ActionListener {
 		pow.addActionListener(c);
 		sqrt.addActionListener(c);
 		log.addActionListener(c);
-		per.addActionListener(c);
+		//per.addActionListener(c);
+		ex.addActionListener(c);
+		sol.addActionListener(c);
 
 		// add elements to panel
+		p.add(w);
 		p.add(l);
-		p.add(ba);
-		p.add(b1);
-		p.add(b2);
-		p.add(b3);
-		p.add(bs);
-		p.add(b4);
-		p.add(b5);
-		p.add(b6);
-		p.add(bm);
+		p.add(ex);
+		p.add(sol);
+		p.add(log);
+		p.add(beq);
+		p.add(pow);
+		p.add(sqrt);
+		p.add(bpi);
+		p.add(bez);
 		p.add(b7);
 		p.add(b8);
 		p.add(b9);
-		p.add(bd);
-		p.add(be);
-		p.add(b0);
-		p.add(beq);
+		p.add(ba);
+		p.add(b4);
+		p.add(b5);
+		p.add(b6);
+		p.add(bs);
+		p.add(b1);
+		p.add(b2);
+		p.add(b3);
+		p.add(bm);
 		p.add(beq1);
-		p.add(bpi);
-		p.add(bez);
-		p.add(pow);
-		p.add(sqrt);
-		p.add(log);
-		p.add(per);
+		p.add(b0);
+		p.add(be);
+		p.add(bd);
+		//p.add(per);
+		
+		
 
 		// set Background of panel
 		p.setBackground(Color.DARK_GRAY);
@@ -165,9 +183,10 @@ class calculator extends JFrame implements ActionListener {
 		// add panel to frame
 		f.add(p);
 		
-		f.setSize(400, 620);
+		f.setSize(450, 750);
 		f.show();
 	}
+
 	public void actionPerformed(ActionEvent e)
 	{
 		String s = e.getActionCommand();
@@ -178,7 +197,6 @@ class calculator extends JFrame implements ActionListener {
 		if (s.equals("e")){
 				s = "2.7183";
 		}
-
 
 		// if the value is a number
 		if ((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.') {
@@ -191,19 +209,20 @@ class calculator extends JFrame implements ActionListener {
 			// set the value of text
 			l.setText(s0 + s1 + s2);
 		}
+
 		else if (s.charAt(0) == 'C') {
 			// clear the one letter
 			s0 = s1 = s2 =  "";
 
 			// set the value of text
 			l.setText(s0 + s1 + s2);
-
+			w.setText("");
+ 
 		}
+
 		else if (s.charAt(0) == '=') {
 
 			double te;
-
-
 
 			// store the value in 1st
 			if (s1.equals("+")){
@@ -241,13 +260,97 @@ class calculator extends JFrame implements ActionListener {
 
 			s1 = s2 = "";
 		}
-		else {
-			// if there was no operand
-			if (s1.equals("") || s2.equals(""))
-				s1 = s;
 
+		else if(s1.equals("") || s2.equals("")){
+			// if there was no operand
+				s1 = s;
 			l.setText(s0 + s1 + s2);
 		}
+
+		if (s.charAt(1)== 'x' || s.charAt(1)=='o'){
+
+			if(s.charAt(1)=='x'){
+				// clear the one letter
+				s0 = s1 = s2 =  "";
+				// set the value of text
+				l.setText(s0 + s1 + s2);
+				
+				// declarate and initialize Datatypes
+				double x = Math.random()*10;
+				double y = Math.random()*10;
+				double opv = Math.random();
+				String op = "";
+
+				// round the operands
+				x = Math.round(x);
+				y = Math.round(y);
+			
+				if(opv<= 0.25){
+					op ="+";
+				}
+				else if(opv>0.25 && opv <= 0.5){
+					op ="-";
+				}
+				else if(opv>0.5 && opv <= 0.75){
+					op ="*";
+				}
+				else{
+					op ="/";
+				}
+				if(x>y){
+					w.setText("Was ist die Lösung von "+x + op + y+"?");
+				}
+				else{
+					w.setText("Was ist die Lösung von "+y + op + x+"?");
+				}
+			}
+
+			else {
+				double solution;
+
+				//get Chars for calculation of the exercise
+				String exercise = w.getText();
+				char xv = exercise.charAt(23);
+				char ov = exercise.charAt(26);
+				char yv = exercise.charAt(27);
+
+				//convert Char to String
+				String xvstr = Character.toString(xv);
+				String yvstr = Character.toString(yv);
+				
+
+				//convert String to double
+				double xvv = Double.parseDouble(xvstr); 
+				double yvv = Double.parseDouble(yvstr); 
+			
+				if(ov == '+'){
+					solution = xvv + yvv;
+				}
+				else if(ov =='-'){
+					solution = xvv - yvv;
+				}
+				else if(ov == '*'){
+					solution = xvv * yvv;
+				}
+				else{
+					solution = xvv / yvv;
+				}
+				solution = solution * 10;
+				solution = Math.round(solution);
+				solution = solution / 10;
+				w.setText("");
+
+				if(Double.parseDouble(s0) == solution){
+					w.setText("Richtig!");
+				}
+
+				else{
+					w.setText("Leider Falsch, die Lösung wäre: " + solution);
+				}
+			}
+		}
+
+	
 	}
 }
 
