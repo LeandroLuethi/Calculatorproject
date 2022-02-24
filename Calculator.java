@@ -221,7 +221,6 @@ class calculator extends JFrame implements ActionListener {
 			else if (s1.equals("√")){
 				double root = 1 / Double.parseDouble(s0);
 				te = (java.lang.Math.pow(Double.parseDouble(s2), root));
-				//te = (java.lang.Math.sqrt(Double.parseDouble(s0)));
 			}
 			else if (s1.equals("log()")){
 				te = (java.lang.Math.log10(Double.parseDouble(s2)) / java.lang.Math.log10(Double.parseDouble(s0)));
@@ -246,34 +245,7 @@ class calculator extends JFrame implements ActionListener {
 			// if there was no operand
 			if (s1.equals("") || s2.equals(""))
 				s1 = s;
-			// else evaluate
-		/* 	else {
-				double te;
 
-				// store the value in 1st
-				if (s1.equals("+")){
-					te = (Double.parseDouble(s0) + Double.parseDouble(s2));
-				}
-				else if (s1.equals("-")){
-					te = (Double.parseDouble(s0) - Double.parseDouble(s2));
-				}
-				else if (s1.equals("/")){
-					te = (Double.parseDouble(s0) / Double.parseDouble(s2));
-				}
-				else
-					te = (Double.parseDouble(s0) * Double.parseDouble(s2));
-
-				// convert it to string
-				s0 = Double.toString(te);
-
-				// place the operator
-				s1 = s;
-
-				// make the operand blank
-				s2 = ""; 
-			}*/
-
-			// set the value of text
 			l.setText(s0 + s1 + s2);
 		}
 	}
