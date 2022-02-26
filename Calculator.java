@@ -52,7 +52,8 @@ class calculator extends JFrame implements ActionListener {
 		l.setEditable(false);
 		w.setEditable(false);
 		// create number buttons and some operators
-		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez, pow, sqrt, log, ex, sol;//per,
+		JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, bs, bd, bm, be, beq, beq1, bpi, bez, pow, sqrt, log, ex, sol;
+		//per = percentage; the button worked but doesn't have a place in aur Calculator
 
 		// create number buttons
 		b0 = new JButton("0");
@@ -81,9 +82,9 @@ class calculator extends JFrame implements ActionListener {
 		pow = new JButton("^");
 		sqrt = new JButton("√");
 		log = new JButton("log()");
-		//per = new JButton("%");
 		ex = new JButton("ex");
 		sol = new JButton("sol");
+		//per = new JButton("%");
 
 		// create . button
 		be = new JButton(".");
@@ -112,9 +113,9 @@ class calculator extends JFrame implements ActionListener {
 		pow.setPreferredSize(new Dimension(90, 90));
 		sqrt.setPreferredSize(new Dimension(90, 90));
 		log.setPreferredSize(new Dimension(90, 90));
-		//per.setPreferredSize(new Dimension(80, 80));
 		ex.setPreferredSize(new Dimension(90, 90));
 		sol.setPreferredSize(new Dimension(90, 90));
+		//per.setPreferredSize(new Dimension(80, 80));
 
 		// create a panel
 		JPanel p = new JPanel();
@@ -142,9 +143,9 @@ class calculator extends JFrame implements ActionListener {
 		pow.addActionListener(c);
 		sqrt.addActionListener(c);
 		log.addActionListener(c);
-		//per.addActionListener(c);
 		ex.addActionListener(c);
 		sol.addActionListener(c);
+		//per.addActionListener(c);
 
 		// add elements to panel
 		p.add(w);
@@ -183,6 +184,7 @@ class calculator extends JFrame implements ActionListener {
 		// add panel to frame
 		f.add(p);
 		
+		//frame size
 		f.setSize(450, 750);
 		f.show();
 	}
@@ -190,6 +192,8 @@ class calculator extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e)
 	{
 		String s = e.getActionCommand();
+
+		//sympols get replaced with the actual number of pi and the euler number
 		if (s.equals("π")){
 				  s = "3.1416";
 		} 
@@ -225,6 +229,7 @@ class calculator extends JFrame implements ActionListener {
 			double te;
 
 			// store the value in 1st
+			// in the following conditions, the calculation takes place
 			if (s1.equals("+")){
 				te = (Double.parseDouble(s0) + Double.parseDouble(s2));
 			}
@@ -244,9 +249,9 @@ class calculator extends JFrame implements ActionListener {
 			else if (s1.equals("log()")){
 				te = (java.lang.Math.log10(Double.parseDouble(s2)) / java.lang.Math.log10(Double.parseDouble(s0)));
 			}
-			else if (s1.equals("%")){
-				te = (Double.parseDouble(s2) * (Double.parseDouble(s0)/100));
-			}
+			// else if (s1.equals("%")){
+			// 	te = (Double.parseDouble(s2) * (Double.parseDouble(s0)/100));
+			// }
 			else
 				te = (Double.parseDouble(s0) * Double.parseDouble(s2)); 
 
@@ -269,9 +274,12 @@ class calculator extends JFrame implements ActionListener {
 
 		if (s.charAt(1)== 'x' || s.charAt(1)=='o'){
 
+			//if->generates an exercise ; else-> controls the solution
 			if(s.charAt(1)=='x'){
+
 				// clear the one letter
 				s0 = s1 = s2 =  "";
+
 				// set the value of text
 				l.setText(s0 + s1 + s2);
 				
@@ -285,6 +293,7 @@ class calculator extends JFrame implements ActionListener {
 				x = Math.round(x);
 				y = Math.round(y);
 			
+				//generate an operator
 				if(opv<= 0.25){
 					op ="+";
 				}
@@ -297,6 +306,8 @@ class calculator extends JFrame implements ActionListener {
 				else{
 					op ="/";
 				}
+
+				//prevention of negative solutions -> subtraction tasks
 				if(x>y){
 					w.setText("Was ist die Lösung von "+x + op + y+"?");
 				}
@@ -323,6 +334,7 @@ class calculator extends JFrame implements ActionListener {
 				double xvv = Double.parseDouble(xvstr); 
 				double yvv = Double.parseDouble(yvstr); 
 			
+				//calculate the solution of the exercise
 				if(ov == '+'){
 					solution = xvv + yvv;
 				}
@@ -335,15 +347,27 @@ class calculator extends JFrame implements ActionListener {
 				else{
 					solution = xvv / yvv;
 				}
+
+				//round solution to one decimal place
 				solution = solution * 10;
 				solution = Math.round(solution);
 				solution = solution / 10;
+
+				//clear Textfield
 				w.setText("");
 
+				//round the solution of the user to one decimal place 
+				//->works until the solution number ends with 0
+
+				// double s0round = Double.parseDouble(s0);
+				// s0round = s0round*10;
+				// s0round = Math.round(s0round);
+				// s0round = s0round /10;
+
+				//check the exercise 
 				if(Double.parseDouble(s0) == solution){
 					w.setText("Richtig!");
 				}
-
 				else{
 					w.setText("Leider Falsch, die Lösung wäre: " + solution);
 				}
